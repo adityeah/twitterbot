@@ -1,0 +1,47 @@
+
+
+
+db.tweet.find({ lastUsed:{$lt:ISODate("2015-10-04")}}).limit(1).skip( _rand() * db.tweet.count())
+
+$exists: true,
+db.tweet.find({$and: [{lastUsed:{$exists: true}},{lastUsed: {$lt:ISODate("2015-10-04")}}]})
+.limit(1).skip( _rand() * db.tweet.count())
+
+
+
+db.tweet.find({$or: [{lastUsed:""},{lastUsed: {$lt:ISODate("2015-10-01")}}]})
+
+db.tweet.find({$or: [{lastUsed:""},{lastUsed: {$lt:ISODate("2015-10-01")}}]}).limit(10).skip( _rand() * db.tweet.count())
+
+db.tweet.find({$or: [{lastUsed:""},{lastUsed: {$lt:ISODate("2015-10-01")}}]}).limit(-1).skip(_rand() * (db.tweet.count()).next()
+
+this one works--->
+db.tweet.find({$or: [{lastUsed:""},{lastUsed: {$lt:ISODate("2015-09-09")}}]}).limit(-1).skip(_rand() * (db.tweet.count()-1)).next()
+
+db.tweet.find({$or: [{lastUsed:""},{lastUsed: {$lt:ISODate("2015-09-10")}}]}).count()
+
+
+
+db.tweet.insert(
+[
+{tweet: "I've given up, stop!\nOn waiting any longer\nI've given up\nOn this love getting stronger\nDon't come around here no more\n- Tom Petty", artist: "Tom Petty", tags:["Heartbreak","Rock"], lastUsed:""},
+{tweet: "Should I give up or should I just keep chasing pavements\nEven if it leads nowhere?\n- Adele", artist: "Adele", tags:["Love", "Heartbreak", "Sadness"], lastUsed:""},
+{tweet: "Light up, light up\nAs if you have a choice\nEven if you cannot hear my voice\nI'll be right beside you, dear\n- Leona Lewis", artist: "Leona Lewis", tags:["Love", "Inspiration", "Pop"], lastUsed:""},
+{tweet: "We used to have a life,\nbut now it's all gone.\nMystify...\nDoes it have to be so cold in Ireland, for me?\n- The Cranberries", artist: "The Cranberries", tags:["Sadness", "Political", "Rock"], lastUsed:""},
+{tweet: "I don't believe in miracles but that don't mean they don't come true\n- Bryan Adams", artist: "Bryan Adams", tags:["Love", "Inspiration", "Rock"], lastUsed:""},
+{tweet: "Well I may not get to heaven but I get a little closer when I'm with you\n- Bryan Adams", artist: "Bryan Adams", tags:["Love","Rock"], lastUsed:""},
+{tweet: "We wander round in the darkness,\nBut every now and then a little light shines through\n- Bryan Adams",artist: "Bryan Adams", tags:["Love","Rock"], lastUsed:""},
+{tweet: "Right when you think you don't need love is when you need it most\n- Bryan Adams", artist: "Bryan Adams", tags:["Love","Rock"], lastUsed:""},
+{tweet: "Well there's more to truth baby - Than what we know is true\n- Bryan Adams", artist: "Bryan Adams", tags:["Love","Life", "Rock"], lastUsed:""},
+{tweet: "Is there anybody out there?\nAnyone that's loved in vain\nAnyone that feels the same\n- Bryan Adams", artist: "Bryan Adams", tags:["Love","Life", "Heartbreak", "Sadness", "Rock"], lastUsed:""},
+{tweet: "Is there anybody waiting?\nWaiting for a chance to win\nTo give it up and start again?\n- Bryan Adams", artist: "Bryan Adams", tags:["Love","Life", "Rock", "Inspiration"], lastUsed:""},
+{tweet: "Is there anybody dreaming?\nDreaming of a better day\nWhen everything goes your way\n- Bryan Adams", artist: "Bryan Adams", tags:["Love","Life", "Rock", "Inspiration"], lastUsed:""},
+{tweet: "We all need something new\nSomething that is true\nAnd someone else to feel it too\n- Bryan Adams", artist: "Bryan Adams", tags:["Love","Life", "Rock", "Inspiration"], lastUsed:""},
+{tweet: "Questions of science\nScience and progress\nCould not speak as loud as my heart\n- Coldplay", artist: "Coldplay", tags:["Love", "Rock", "Inspiration"], lastUsed:""},
+{tweet: "Nobody said it was easy\nNo one ever said it would be so hard\nI'm going back to the start\n- Coldplay", artist: "Coldplay", tags:["Love", "Rock", "Sadness", "Heartbreak"], lastUsed:""},
+{tweet: "I'm going back to the start\n- Coldplay", artist: "Coldplay", tags:["Love", "Rock", "Sadness", "Heartbreak"], lastUsed:""},
+{tweet: "I'm falling for you, baby --I need a parachute\n- Jennifer Lopez/Lil Wayne", artist: "Jennifer Lopez/Lil Wayne", tags:["Love", "Funny"], lastUsed:""},
+{tweet: "There are nine million bicycles in Beijing\nThat's a fact\nA thing we can't deny\nLike the fact that I will love you till I die\n-Katie Melua", artist: "Katie Melua", tags:["Love", "Jazz"], lastUsed:""},
+{tweet: "There're six billion people in the world\nMore or less\nAnd it makes me feel quite small\nBut u're the one I love the most of all\n- Katie Melua", artist: "Katie Melua", tags:["Love", "Jazz"], lastUsed:""},
+{tweet: "Did you know when you go it's the perfect ending\nTo the bad day I was just beginning\nall I know is you're my favorite mistake\n- Sheryl Crow", artist: "Sheryl Crow", tags:["Love", "Heartbreak", "Rock", "Sadness"], lastUsed:""},
+])
