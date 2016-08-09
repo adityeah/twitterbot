@@ -11,10 +11,10 @@ var db;
 var collectionCount;
 
 var t = new Twit({
-    consumer_key:         'hzeHKiG6kuWeeMKBgcfVvHiLg' // Your Consumer Key
-  , consumer_secret:      '7z3kdClFsoVX969DtukxtF9C1zglq3nbaBEa36V8Wc5Dzi0L5j' // Your Consumer Secret
-  , access_token:         '3310745322-pCB4hb4KGxn084nKEuiHtOQVPqruRZ6hdxyf657' // Your Access Token
-  , access_token_secret:  'nVd28YtUB3R6VBFBm0ywFDWb9Tl1GkeUnQc5Q2V9LbSht' // Your Access Token Secret
+    consumer_key:          // Your Consumer Key
+  , consumer_secret:     // Your Consumer Secret
+  , access_token:        // Your Access Token
+  , access_token_secret:   // Your Access Token Secret
 });
 
 // Connection URL. This is where your mongodb server is running.
