@@ -11,15 +11,16 @@ var db;
 var collectionCount;
 
 var t = new Twit({
-    consumer_key:          // Your Consumer Key
-  , consumer_secret:     // Your Consumer Secret
-  , access_token:        // Your Access Token
-  , access_token_secret:   // Your Access Token Secret
+    consumer_key:        process.env.TWITTERBOT_CONSUMER_KEY // Consumer Key
+  , consumer_secret:     process.env.TWITTERBOT_CONSUMER_SECRET // Consumer Secret
+  , access_token:        process.env.TWITTERBOT_ACCESS_TOKEN // Access Token
+  , access_token_secret: process.env.TWITTERBOT_ACCESS_TOKEN_SECRET  // Access Token Secret
 });
 
 // Connection URL. This is where your mongodb server is running.
 
-var url = 'mongodb://localhost:27017/songwala';
+//var url = 'mongodb://localhost:27017/songwala';
+var url = "mongodb://aditya:password@ds145315.mlab.com:45315/songwala"
 
 
 
@@ -168,4 +169,4 @@ setInterval(function() {
   catch (e) {
     console.log(e);
   }
-}, 60000* 120);
+}, 60000* 60);
